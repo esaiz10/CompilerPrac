@@ -1,0 +1,74 @@
+program CoinCounter;
+
+var
+    coin, totalCoins, totalValue: Integer;
+    pennyCount, nickelCount, dimeCount, quarterCount, halfDollarCount, dollarCount: Integer;
+    pennyValue, nickelValue, dimeValue, quarterValue, halfDollarValue, dollarValue: Integer;
+
+begin
+    { Initialize counters and values }
+    totalCoins := 0;
+    totalValue := 0;
+    pennyCount := 0; nickelCount := 0; dimeCount := 0;
+    quarterCount := 0; halfDollarCount := 0; dollarCount := 0;
+    pennyValue := 0; nickelValue := 0; dimeValue := 0;
+    quarterValue := 0; halfDollarValue := 0; dollarValue := 0;
+
+    { Prompt user to enter coin values }
+    WriteLn('Enter coin values separated by spaces, ending with 999: ');
+
+    { Read the first coin }
+    Read(coin);
+
+    { Process coin values until sentinel 999 is found }
+    while coin <> 999 do
+    begin
+        case coin of
+            1: 
+                begin
+                    pennyCount := pennyCount + 1;
+                    pennyValue := pennyValue + 1;
+                end;
+            5: 
+                begin
+                    nickelCount := nickelCount + 1;
+                    nickelValue := nickelValue + 5;
+                end;
+            10: 
+                begin
+                    dimeCount := dimeCount + 1;
+                    dimeValue := dimeValue + 10;
+                end;
+            25: 
+                begin
+                    quarterCount := quarterCount + 1;
+                    quarterValue := quarterValue + 25;
+                end;
+            50: 
+                begin
+                    halfDollarCount := halfDollarCount + 1;
+                    halfDollarValue := halfDollarValue + 50;
+                end;
+            100: 
+                begin
+                    dollarCount := dollarCount + 1;
+                    dollarValue := dollarValue + 100;
+                end;
+        else
+            { Ignore invalid coins }
+        end;
+
+        { Read the next coin }
+        Read(coin);
+    end;
+
+    { Calculate total coins and total value }
+    totalCoins := pennyCount + nickelCount + dimeCount + quarterCount + halfDollarCount + dollarCount;
+    totalValue := pennyValue + nickelValue + dimeValue + quarterValue + halfDollarValue + dollarValue;
+
+    { Display report }
+    WriteLn('Report:');
+    WriteLn('Total coins: ', totalCoins);
+    WriteLn('Total value: $', totalValue div 100, '.', totalValue mod 100);
+    WriteLn('Grand Total Value: $', totalValue div 100, '.', totalValue mod 100);
+end.
