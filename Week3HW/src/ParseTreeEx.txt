@@ -1,0 +1,24 @@
+
+java ExpressionDriver "(* (+ (2) (3)) (- (5) (3)))"
+Parse Tree: (* (+ (2) (3)) (- (5) (3)))
+Result: 10
+
+java ExpressionDriver "(+ (4) (3))"
+Parse Tree: (+ (4) (3))
+Result: 7
+
+java ExpressionDriver "(* (3) (2))"
+Parse Tree: (* (3) (2))
+Result: 6
+
+java ExpressionDriver "(- (8) (5))"
+Parse Tree: (- (8) (5))
+Result: 3
+
+java ExpressionDriver "(+ (* (2) (3)) (4))"
+Parse Tree: (+ (* (2) (3)) (4))
+Result: 10
+
+java ExpressionDriver "(- (* (3) (2)) (4))"
+Parse Tree: (- (* (3) (2)) (4))
+Result: 2
